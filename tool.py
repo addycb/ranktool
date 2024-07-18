@@ -48,21 +48,25 @@ rankmap={
 #for rank in rankmap:
 #    print(rankmap[rank]+rank+CEND)
 
-print("Welcome to the Overwatch Team Rank Checker")
+print(CPURPLE+"Welcome to the Overwatch Team Rank Checker"+CEND+"\n")
 
 API_KEY=api.getkey()
 if API_KEY is None:
     API_KEY=0
 while not api.testkey(API_KEY) or API_KEY==0:
     print("No Valid API Key Found")
-    print("Enter startGG API Key:")
+    print(CYELLOW+"Enter startGG API Key:"+CEND)
     API_KEY=input()
     api.setkey(API_KEY)
 print("API Key Confirmed")
 
-print("Enter match url:")
-url=input()
+url=""
+while not parse.validate_url(url) or url=="":
+    print(CYELLOW+"Enter match url:\n"+CEND)
+    url=input()
+
 tournament_slug, set_id = parse.extract_ids(url)
+print("URL Parsed")
 #print(f"Tournament Slug: {tournament_slug}, Set ID: {set_id}\n")
 
 
