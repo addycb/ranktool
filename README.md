@@ -20,9 +20,9 @@ competing teams. Leverages startgg and overfast apis alongside python.
 5. Run the ranktool ;) :: python3 ranktool
 
 <h1>Example Screenshots</h1>
-<img src=screenshot1.png>
-<img src=screenshot2.png>
-<img src=screenshot3.png>
-<img src=screenshot4.png>
+<img src=Screenshots/screenshot1.png>
+<img src=Screenshots/screenshot2.png>
+<img src=Screenshots/screenshot3.png>
+<img src=Screenshots/screenshot4.png>
 
 
