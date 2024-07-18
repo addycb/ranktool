@@ -63,16 +63,18 @@ print(CEND)
 API_KEY=api.getkey()
 if API_KEY is None:
     API_KEY=0
-while not api.testkey(API_KEY) or API_KEY==0:
-    print("No Valid API Key Found")
-    print(CYELLOW+"Enter startGG API Key:"+CEND)
+while API_KEY==0 or not api.testkey(API_KEY):
+
+    #print("No Valid API Key Found")
+    print(CYELLOW+"Enter startGG API Key, or Press Enter:"+CEND)
     API_KEY=input()
     api.setkey(API_KEY)
-print("API Key Confirmed")
+print(CRED+"Success, API Key Saved to Disk"+CEND
+)
 
 url=""
 while url=="" or not parse.validate_url(url):
-    print(CYELLOW+"Enter match url:\n"+CEND)
+    print(CYELLOW+"Enter match url:"+CEND)
     url=input()
     url=url.strip()
 
@@ -87,6 +89,7 @@ print(CRED+"Team 1:", team1,CEND+"\n")
 print(CBLUE+"Team 2:", team2,CEND+"\n")
 print(CYELLOW+"Select A Team (1 or 2):\n"+CEND)
 teamnum = int(input())
+
 print("\n")
 #Call overfast api to get the player ranks on competitive pc for the selected team
 for player in team1 if teamnum==1 else team2:

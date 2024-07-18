@@ -78,6 +78,7 @@ def testkey(key):
     if response.status_code == 200:
         return True
     else:
+        print("API Key is invalid.\nCreate or retrieve a personal access token at:\nhttps://www.start.gg/admin/user/rgbattack/developer\nClick On Developer Settings->Personal Access Tokens->Create Token")
         return False
 
 def setkey(key):

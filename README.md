@@ -10,6 +10,6 @@ cd yourprojectname
 ###3. Install dependencies using pip
 pip install -r requirements.txt
 ###4. Run the ranktool ;)
-python3 main.py
+python3 ranktool
 +++++++++++++++
 
