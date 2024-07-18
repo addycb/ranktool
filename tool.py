@@ -97,5 +97,4 @@ def main():
                     tier = role_data.get('tier', 'Unknown')
                     print(rolemap[role]+f"Season {season} {role} Rank: "+rankmap[division]+f" {division} {tier}"+CEND)
         print(CUNDERLINE+"https://www.overbuff.com/players/"+player['blizzard_id'],CEND+"\n")
-
-
+main()
