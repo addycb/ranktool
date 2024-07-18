@@ -18,7 +18,8 @@ other teams.
 
 <h1>Example Screenshots</h1>
 <img src=screenshot1.png>
-<img src=screenshot2.png height=300>
+<img src=screenshot2.png>
 <img src=screenshot3.png>
+<img src=screenshot4.png>
 
 
