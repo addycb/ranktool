@@ -1,14 +1,17 @@
 
+# ⚡ Ranktool
 ```
 ⠀⠀⠀⠘⡮⠓⠁⠀⢀⠄⠀⠀⣸⣜⢫⠶⣍⠾⠍  ⢤⠤⣤⠤⡤⢤⠠⠤⢤⣤⢤⡀ ⠀⠀
 ⠀⠀⠀⠀⠀⢤⡤⣤⡜⠀⠀⡐⠁⣏⢧⣛⣼⠏ ⣰⠻⣌⣻⠴⠛⠛⠋⠀⠀⢀⣮⠳⡵⡀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠳⣣⠁⠀⣰⡝⣣⣘⡞⡴⠃⠀⣰⢭⠳⣍⢷⣗⣊⠀⠀⠀⠀⠺⢦⡻⡗⣥⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠈⠀⢸⡱⢞⡱⡯⠊⠀⠀⠀⡟⣬⢳⡭⣮⣝⠞⠀⠀⢀⡴⢤⣄⢀⡭⣞⢧                              
-ranktool
 ```
+![Python](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/TeKrop/15a234815aa74059953a766a10e92688/raw/python-version.json)
+[![License: MIT](https://img.shields.io/github/license/TeKrop/overfast-api)](https://github.com/TeKrop/overfast-api/blob/master/LICENSE)
+
 
 Used to check team rank for startGG overwatch tournaments, namely the official Overwatch Collegiate Tournaments. This can be useful to quickly check your matchups, and gather data on 
-competing teams.
+competing teams. Leverages startgg and overfast apis alongside python.
 ## Setup
 1. Clone the repository :: git clone https://github.com/yourusername/yourprojectname.git
 2. Navigate into the repository directory :: cd yourprojectname
