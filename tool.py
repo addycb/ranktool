@@ -1,17 +1,16 @@
  
-import sys
+import os 
 import parse
 import api
-import os
-
+import platform
 
 #if windows is os: run color command
-if os.name == 'nt':
+def is_windows():
+    return platform.system() == 'Windows'
+if is_windows():
     os.system('color')
 
-
-
-
+#COLORS
 CRED = '\033[91m'
 CGREEN = '\033[92m'
 CBLUE = '\033[94m'
@@ -23,16 +22,14 @@ CSILVER='\033[37m'
 CSKYBLUE='\033[36m'
 CPURPLE='\033[35m'
 CTURQOISE='\033[96m'
-
 CEND = '\033[0m'
 CUNDERLINE = '\033[4m'
-
+#COLOR MAPPINGS
 rolemap={
     "tank":CBLUE,
     "damage":CRED,
     "support":CGREEN
 }
-
 rankmap={
     "bronze":CDARKBLUE,
     "silver":CGRAY,
@@ -45,10 +42,23 @@ rankmap={
     "top500":CRED
 }
 
-#for rank in rankmap:
-#    print(rankmap[rank]+rank+CEND)
-
 print(CPURPLE+"Welcome to the Overwatch Team Rank Checker"+CEND+"\n")
+my_string = CRED+r"""
+                            
+⠀⠀⠀⠘⡮⠓⠁⠀⢀⠄⠀⠀⣸⣜⢫⠶⣍⠾⠍   ⢤⠤⣤⠤⡤⢤⠠⠤⢤⣤⢤⡀ ⠀⠀
+⠀⠀⠀⠀⠀⢤⡤⣤⡜⠀⠀⡐⠁⣏⢧⣛⣼⠏ ⣰⠻⣌⣻⠴⠛⠛⠋⠀⠀⢀⣮⠳⡵⡀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠳⣣⠁⠀⣰⡝⣣⣘⡞⡴⠃⠀⣰⢭⠳⣍⢷⣗⣊⠀⠀⠀⠀⠺⢦⡻⡗⣥⢠⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠈⠀⢸⡱⢞⡱⡯⠊⠀⠀⠀⡟⣬⢳⡭⣮⣝⠞⠀⠀⢀⡴⢤⣄⢀⡭⣞⢧
+"""+CGREEN+"""
+ranktool  ⠀⠀    @rgbattack    python
+********************************************"""+CEND+'\n'+"Press ENTER to Continue"
+print(my_string)
+input()
+print(CEND)
+
+
+
+
 
 API_KEY=api.getkey()
 if API_KEY is None:
@@ -61,9 +71,10 @@ while not api.testkey(API_KEY) or API_KEY==0:
 print("API Key Confirmed")
 
 url=""
-while not parse.validate_url(url) or url=="":
+while url=="" or not parse.validate_url(url):
     print(CYELLOW+"Enter match url:\n"+CEND)
     url=input()
+    url=url.strip()
 
 tournament_slug, set_id = parse.extract_ids(url)
 print("URL Parsed")

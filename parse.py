@@ -37,6 +37,7 @@ def validate_url(url):
         r'(?:/?|[/?]\S+)$', re.IGNORECASE)
 
     if re.match(regex, url) is None:
+        print("Usage: Enter the url from a start.gg Overwatch match.\nExample: https://www.start.gg/tournament/overwatch-collegiate-championship-spring-2024/events/overwatch-collegiate-championship-spring-2024/set/74300192 \n")
         return False
 
     # Check for required path segments
