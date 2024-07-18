@@ -1,6 +1,14 @@
-ranktool
 
-Used to check team rank for startGG overwatch tournaments, namely Overwatch Collegiate.
+```
+⠀⠀⠀⠘⡮⠓⠁⠀⢀⠄⠀⠀⣸⣜⢫⠶⣍⠾⠍   ⢤⠤⣤⠤⡤⢤⠠⠤⢤⣤⢤⡀ ⠀⠀
+⠀⠀⠀⠀⠀⢤⡤⣤⡜⠀⠀⡐⠁⣏⢧⣛⣼⠏ ⣰⠻⣌⣻⠴⠛⠛⠋⠀⠀⢀⣮⠳⡵⡀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠳⣣⠁⠀⣰⡝⣣⣘⡞⡴⠃⠀⣰⢭⠳⣍⢷⣗⣊⠀⠀⠀⠀⠺⢦⡻⡗⣥⢠⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠈⠀⢸⡱⢞⡱⡯⠊⠀⠀⠀⡟⣬⢳⡭⣮⣝⠞⠀⠀⢀⡴⢤⣄⢀⡭⣞⢧                                
+ranktool
+```
+
+Used to check team rank for startGG overwatch tournaments, namely the official Overwatch Collegiate Tournaments. This can be useful to quickly check your matchups, and gather data on 
+other teams.
 ## Setup
 1. Clone the repository :: git clone https://github.com/yourusername/yourprojectname.git
 2. Navigate into the repository directory :: cd yourprojectname
