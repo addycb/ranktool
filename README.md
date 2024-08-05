@@ -10,8 +10,8 @@
 [![License: MIT](https://img.shields.io/github/license/TeKrop/overfast-api)](https://github.com/addycb/ranktool/blob/main/LICENSE)
 
 
-Used to check team rank for startGG overwatch tournaments, namely the official Overwatch Collegiate Tournaments. This can be useful to quickly check your matchups, and gather data on 
-competing teams. Leverages startgg and overfast apis alongside python.
+Used to gather player rank for startGG overwatch tournaments. This can be useful to quickly check your matchups, and gather data on 
+competing teams, especially in official Overwatch Collegiate Tournaments. Leverages startgg and overfast apis alongside python.
 ## Setup
 1. Clone the repository :: git clone https://github.com/addycb/ranktool
 2. Navigate into the repository directory :: cd ranktool
