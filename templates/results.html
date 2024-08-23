@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results - RankTool</title>
+    <style>
+        body {
+            font-family: Helvetica, Arial, sans-serif;
+            background-color: #1e1e1e;
+            color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            flex: 1;
+            width: 100%;
+            margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box; /* Ensures padding is included in width */
+        }
+        .rank-container {
+    align-items: center; /* Aligns items vertically centered */
+}
+        .error {
+            color: red;
+            font-size: 1.2em;
+            text-align: center;
+        }
+
+        .team {
+            margin-bottom: 40px;
+            overflow: hidden; /* Ensures content fits within viewport */
+        }
+
+        .team-title {
+            font-size: 1.5em;
+            color: #ff5733;
+            margin-bottom: 10px;
+        }
+
+        .player {
+            margin-bottom: 20px;
+            text-align: center;
+            background-color: #333;
+            border-radius: 8px;
+            padding: 15px;
+            min-width: 20%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            box-sizing: border-box; /* Ensures padding is included in width */
+        }
+
+        .player-id {
+            font-weight: bold;
+            color: #ff5733;
+        }
+
+        .player-role {
+            margin-top: 10px;
+        }
+
+        .player-role span {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .player-role .rank-label, .player-role .season-label {
+            font-weight: bold;
+        }
+
+        .player-role .rank-value {
+            text-transform: capitalize; /* Capitalizes the first letter of the rank */
+        }
+
+        /* Rank colors */
+        .rank-bronze { color: #0033a0; } /* CDARKBLUE */
+        .rank-silver { color: #c0c0c0; } /* CGRAY */
+        .rank-gold { color: #ffd700; } /* CYELLOW */
+        .rank-platinum { color: #e5e4e2; } /* CSILVER */
+        .rank-diamond { color: #00bfff; } /* CSKYBLUE */
+        .rank-master { color: #ff7f00; } /* CORANGE */
+        .rank-grandmaster { color: #40e0d0; } /* CTURQOISE */
+        .rank-champion { color: #800080; } /* CPURPLE */
+        .rank-top500 { color: #ff0000; } /* CRED */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="results">
+            {% if error %}
+                <div class="error">{{ error }}</div>
+            {% else %}
+                <div id="team1" class="team">
+                    <div class="team-title">Team 1 Results</div>
+                </div>
+                <div id="team2" class="team">
+                    <div class="team-title">Team 2 Results</div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+    <script>
+        function renderPlayer(player) {
+            const playerDiv = document.createElement('div');
+            playerDiv.className = 'player';
+
+            const roleTitles = Object.keys(player.roles);
+            const rolesHTML = roleTitles.map(role => {
+                const data = player.roles[role];
+                let roleContent = '';
+                if (data === 'No data' || data.error) {
+                    roleContent = `<span style="color:gray">No Data</span>`;
+                } else {
+                    const rankClass = `rank-${data.division.toLowerCase()}`;
+                    roleContent = `
+                        
+                        <span>Season: ${data.season}</span>
+                        <div class="rank-container">
+                        <span>Rank: </span> <span class="${rankClass} rank-value">${data.division} ${data.tier}</span>
+                        </div>
+                        `;
+                }
+                /*
+                let alignmentStyle = '';
+                if (role.toLowerCase() === 'damage') {
+                    alignmentStyle = 'position: absolute; left: 30%;';
+                } else if (role.toLowerCase() === 'tank') {
+                    alignmentStyle = 'position: absolute; left: 70%;';
+                } else if (role.toLowerCase() === 'support') {
+                    alignmentStyle = 'text-align: center; width: 100%;';
+                }
+                */
+                return `
+                    <div style="position: relative;">
+                        <strong>${role.charAt(0).toUpperCase() + role.slice(1)}</strong><br>
+                        ${roleContent}
+                    </div>
+                `;
+            }).join('');
+
+            playerDiv.innerHTML = `
+                <div class="player-id">BattleNet ID: ${player.blizzard_id}</div>
+                <div class="player-role">
+                    ${rolesHTML}
+                </div>
+            `;
+            return playerDiv;
+        }
+
+        function displayResults(team, teamId) {
+            const teamDiv = document.getElementById(teamId);
+            team.forEach(player => {
+                teamDiv.appendChild(renderPlayer(player));
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const team1Results = {{ results_team1|tojson }};
+            const team2Results = {{ results_team2|tojson }};
+            
+            displayResults(team1Results, 'team1');
+            displayResults(team2Results, 'team2');
+        });
+    </script>
+</body>
+</html>

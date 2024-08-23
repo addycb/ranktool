@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RankTool</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">RankTool</h1>
+        <form action="{{ url_for('search') }}" method="post" id="search-form">
+            <input type="text" id="url-input" name="url" placeholder="Insert start.gg match link here" required>
+            <button type="submit" id="search-button">Search</button>
+        </form>
+        <br>
+        <span style="color:darkred">Example Link: https://www.start.gg/tournament/overwatch-collegiate-championship-spring-2024/events/overwatch-collegiate-championship-spring-2024/set/73770054</span>
+        <span style="color:darkred">Note:Tournament must require connected battle.net account</span>
+
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
