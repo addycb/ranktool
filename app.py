@@ -14,6 +14,7 @@ def index():
 @app.route('/search', methods=['POST'])
 def search(): 
     url = request.form.get('url', 'nourl')
+    url=url.strip()
     #print(f"Received URL: {url}") 
     
     if not parse.validate_url(url):

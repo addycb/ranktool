@@ -14,8 +14,16 @@
             <button type="submit" id="search-button">Search</button>
         </form>
         <br>
-        <span style="color:darkred">Example Link: https://www.start.gg/tournament/overwatch-collegiate-championship-spring-2024/events/overwatch-collegiate-championship-spring-2024/set/73770054</span>
-        <span style="color:darkred">Note:Tournament must require connected battle.net account</span>
+        <div class="container2">
+            <div id="copyText" style="color:darkred">
+                Example Link: https://www.start.gg/tournament/overwatch-collegiate-championship-spring-2024/events/overwatch-collegiate-championship-spring-2024/set/73770054
+            </div>
+            <button class="copy-button" onclick="copyLinkToClipboard()">
+                &#128203; <!-- Clipboard icon (Unicode character) -->
+            </button>
+            <span id="feedback" class="feedback">Link copied!</span>
+        </div>
+        <span style="color:darkred">Note:Tournament must require participants to connect a battle.net account</span>
 
     </div>
     <script src="{{ url_for('static', filename='script.js') }}"></script>
