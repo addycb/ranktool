@@ -16,8 +16,8 @@ competing teams, especially in official Overwatch Collegiate Tournaments. Levera
 1. Clone the repository :: git clone https://github.com/addycb/ranktool
 2. Navigate into the repository directory :: cd ranktool
 3. Install dependencies using pip :: pip install -r requirements.txt
-4. Prepare an api key from https://www.start.gg/admin/user/rgbattack/developer. Sign into the link, click developer tools, and copy personal access token for program first run.
-5. Run the ranktool ;) :: python3 ranktool
+4. Prepare an api key from https://www.start.gg/admin/user/rgbattack/developer. Sign into the link, click developer tools, and copy personal access token for program first run. The console will ask for the access token if one has not been already saved.
+5. Run the ranktool ;) :: python3 tool.py
 
 <h1>Example Screenshots</h1>
 <img src=Screenshots/screenshot1.png>
